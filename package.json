@@ -1,37 +1,28 @@
 {
-    "name": "mockbank-api",
+    "name": "monikid-backend-api",
     "version": "1.0.0",
-    "description": "Mock Bank API for MoniKid - Demo banking operations",
-    "main": "dist/index.js",
+    "description": "Backend API for MoniKid (node.js + express + javascript)",
+    "main": "src/server.js",
     "type": "module",
     "scripts": {
-        "dev": "tsx watch src/index.ts",
-        "build": "tsc",
-        "start": "node dist/index.js",
-        "lint": "eslint src/",
+        "start": "node src/server.js",
+        "dev": "node --watch src/server.js",
         "test": "node --test"
     },
     "keywords": [
-        "mockbank",
+        "monikid",
         "fintech",
-        "demo",
         "api"
     ],
     "author": "MoniKid Team",
     "license": "MIT",
     "dependencies": {
+        "@supabase/supabase-js": "^2.45.0",
         "cors": "^2.8.5",
         "dotenv": "^16.4.5",
         "express": "^4.21.0",
         "helmet": "^8.0.0",
         "zod": "^3.24.0"
-    },
-    "devDependencies": {
-        "@types/cors": "^2.8.17",
-        "@types/express": "^4.17.21",
-        "@types/node": "^22.0.0",
-        "tsx": "^4.19.0",
-        "typescript": "^5.6.0"
     },
     "engines": {
         "node": ">=20.0.0"
