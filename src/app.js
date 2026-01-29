@@ -14,6 +14,17 @@ app.use(cors({ origin: config.corsOrigin }));
 app.use(express.json());
 
 // Routes
+app.get('/', (req, res) => {
+    res.json({
+        status: 'online',
+        message: 'Welcome to MoniKid API 🚀',
+        endpoints: {
+            health: '/health',
+            transactions: '/api/transactions'
+        }
+    });
+});
+
 app.get('/health', (req, res) => {
     res.json({ status: 'ok', service: 'monikid-backend-api' });
 });
