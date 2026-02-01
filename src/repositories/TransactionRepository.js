@@ -1,7 +1,7 @@
-import { supabase } from './supabaseClient.js';
+import { supabase } from '../config/supabaseClient.js';
 import { AppError } from '../utils/AppError.js';
 
-export class TransactionRepository {
+class TransactionRepository {
     async create(transactionData) {
         const { data, error } = await supabase
             .from('transactions')
@@ -55,3 +55,5 @@ export class TransactionRepository {
         return data;
     }
 }
+
+export default new TransactionRepository();

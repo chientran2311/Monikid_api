@@ -1,10 +1,13 @@
 import { z } from 'zod';
 
+// Transaction types matching Flutter app: bank_deposit, bank_withdraw, allowance, payment, request_transfer
+export const transactionTypes = ['bank_deposit', 'bank_withdraw', 'allowance', 'payment', 'request_transfer'];
+
 export const createTransactionSchema = z.object({
     family_id: z.string().uuid(),
     from_wallet_id: z.string().uuid().optional(),
     to_wallet_id: z.string().uuid().optional(),
-    type: z.enum(['transfer', 'allowance', 'payment', 'deposit', 'withdraw']),
+    type: z.enum(['bank_deposit', 'bank_withdraw', 'allowance', 'payment', 'request_transfer']),
     amount: z.number().positive(),
     description: z.string().optional(),
     merchant_name: z.string().optional(),

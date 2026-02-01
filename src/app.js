@@ -3,6 +3,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { config } from './config/unifiedConfig.js';
 import { transactionRoutes } from './routes/transactionRoutes.js';
+import walletRoutes from './routes/walletRoutes.js';
+import bankAccountRoutes from './routes/bankAccountRoutes.js';
 import { errorMiddleware } from './middleware/errorMiddleware.js';
 import { AppError } from './utils/AppError.js';
 
@@ -20,7 +22,9 @@ app.get('/', (req, res) => {
         message: 'Welcome to MoniKid API 🚀',
         endpoints: {
             health: '/health',
-            transactions: '/api/transactions'
+            transactions: '/api/transactions',
+            wallets: '/api/wallets',
+            bankAccounts: '/api/bank-accounts'
         }
     });
 });
@@ -30,6 +34,8 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/api/transactions', transactionRoutes);
+app.use('/api/wallets', walletRoutes);
+app.use('/api/bank-accounts', bankAccountRoutes);
 
 // 404 Handler
 app.use((req, res, next) => {

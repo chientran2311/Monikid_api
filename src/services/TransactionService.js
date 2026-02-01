@@ -1,8 +1,8 @@
-import { TransactionRepository } from '../repositories/TransactionRepository.js';
+import TransactionRepository from '../repositories/TransactionRepository.js';
 
 export class TransactionService {
     constructor() {
-        this.transactionRepository = new TransactionRepository();
+        this.transactionRepository = TransactionRepository;
     }
 
     async createTransaction(data) {
